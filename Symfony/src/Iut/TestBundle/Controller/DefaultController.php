@@ -23,6 +23,6 @@ class DefaultController extends Controller
     
     public function simpleAction () {
 			$title="Super titre";
-			return array('title'=>$titre);
+			return array('title' => $title);
 	}
 }
