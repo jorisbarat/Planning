@@ -135,22 +135,27 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        if (0 === strpos($pathinfo, '/hello')) {
-            // iut_planning_homepage
-            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'iut_planning_homepage')), array (  '_controller' => 'Iut\\PlanningBundle\\Controller\\DefaultController::indexAction',));
+        // iut_planning_default_index
+        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'iut_planning_default_index')), array (  '_controller' => 'Iut\\PlanningBundle\\Controller\\DefaultController::indexAction',));
+        }
+
+        if (0 === strpos($pathinfo, '/add')) {
+            // iut_planning_default_formuser
+            if ($pathinfo === '/add') {
+                return array (  '_controller' => 'Iut\\PlanningBundle\\Controller\\DefaultController::formuserAction',  '_route' => 'iut_planning_default_formuser',);
             }
 
-            // iut_test_default_index
-            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'iut_test_default_index')), array (  '_controller' => 'Iut\\TestBundle\\Controller\\DefaultController::indexAction',));
+            // iut_planning_users_add
+            if ($pathinfo === '/add') {
+                return array (  '_controller' => 'Iut\\PlanningBundle\\Controller\\UsersController::addAction',  '_route' => 'iut_planning_users_add',);
             }
 
         }
 
-        // iut_test_default_simple
-        if ($pathinfo === '/simple') {
-            return array (  '_controller' => 'Iut\\TestBundle\\Controller\\DefaultController::simpleAction',  '_route' => 'iut_test_default_simple',);
+        // iut_planning_users_id
+        if (0 === strpos($pathinfo, '/id') && preg_match('#^/id/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'iut_planning_users_id')), array (  '_controller' => 'Iut\\PlanningBundle\\Controller\\UsersController::idAction',));
         }
 
         // _welcome

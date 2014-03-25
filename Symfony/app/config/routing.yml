@@ -1,9 +1,5 @@
 iut_planning:
-    resource: "@IutPlanningBundle/Resources/config/routing.php"
-    prefix:   /
-
-iut_test:
-    resource: "@IutTestBundle/Controller/"
-    type:     annotation
-    prefix:   /
+    resource: "@IutPlanningBundle/Controller/"
+    type: annotation
+    prefix:  /
 

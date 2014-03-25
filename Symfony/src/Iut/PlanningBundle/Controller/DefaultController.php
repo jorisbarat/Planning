@@ -8,16 +8,21 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class DefaultController extends Controller
 {
+    /**
+     * @Route("/hello/{name}")
+     * @Template()
+     */
     public function indexAction($name)
     {
-        return $this->render('IutPlanningBundle:Default:index.html.twig', array('name' => $name));
+        return array('name' => $name);
     }
     
+
     /**
-     *@Route("/add")
-     *@Template()
-    */
-    
-    public function addAction() {
-    }
+     * @Route("/add")
+     * @Template()
+     */
+    public function formuserAction(){
+		      return $this->render('IutPlanningBundle:User:add.html.twig');	
+		}
 }

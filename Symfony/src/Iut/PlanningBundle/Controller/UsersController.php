@@ -12,16 +12,18 @@ class UsersController extends Controller
      * @Route("/add")
      * @Template()
      */
+     
     public function addAction()
-    {
+    { 
     }
-
+	
     /**
-     * @Route("/show")
+     * @Route("/id/{id}")
      * @Template()
      */
-    public function showAction()
+    public function idAction($id)
     {
+		return array ( 'id' => $id );
     }
 
 }
