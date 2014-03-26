@@ -1,9 +1,23 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}IutPlanningBundle:User:add{% endblock %}
+{% block title %}IutPlanningBundle:Users:add{% endblock %}
 
 {% block body %}
 <h1>Ajout d'utilisateur</h1>
-<form method="get" action="UsersController.php">
+
+<form method="post" action="save">
+<p>
+	Username : <input type="text" name="Username" />
+</p>
+<p>
+	Password : <input type="password" name="Password" />
+</p>
+<p>
+	<input type="submit" name="Enregistrer" value="Enregistrer"/>
+</p>
+
+{{msg}}
+
 </form>
+
 {% endblock %}

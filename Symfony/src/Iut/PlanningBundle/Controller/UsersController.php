@@ -15,15 +15,15 @@ class UsersController extends Controller
      
     public function addAction()
     { 
+			
     }
-	
-    /**
+    
+	/*
      * @Route("/id/{id}")
      * @Template()
      */
     public function idAction($id)
     {
-		return array ( 'id' => $id );
     }
 
 }

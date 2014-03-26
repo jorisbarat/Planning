@@ -9,42 +9,19 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class ActivityController extends Controller
 {
     /**
-     * @Route("/IutPlanningBundle:saisie")
+     * @Route("/activity/add")
      * @Template()
      */
-    public function IutPlanningBundle:saisieAction()
+    public function addAction()
     {
+		
     }
 
     /**
-     * @Route("/IutPlanningBundle:affichageTsActivity")
+     * @Route("/show")
      * @Template()
      */
-    public function IutPlanningBundle:affichageTsActivityAction()
-    {
-    }
-
-    /**
-     * @Route("/IutPlanningBundle:affichageTsJour")
-     * @Template()
-     */
-    public function IutPlanningBundle:affichageTsJourAction()
-    {
-    }
-
-    /**
-     * @Route("/suppresion")
-     * @Template()
-     */
-    public function suppresionAction()
-    {
-    }
-
-    /**
-     * @Route("/modification")
-     * @Template()
-     */
-    public function modificationAction()
+    public function showAction()
     {
     }
 

@@ -135,27 +135,47 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // iut_planning_activity_add
+        if ($pathinfo === '/activity/add') {
+            return array (  '_controller' => 'Iut\\PlanningBundle\\Controller\\ActivityController::addAction',  '_route' => 'iut_planning_activity_add',);
+        }
+
+        // iut_planning_activity_show
+        if ($pathinfo === '/show') {
+            return array (  '_controller' => 'Iut\\PlanningBundle\\Controller\\ActivityController::showAction',  '_route' => 'iut_planning_activity_show',);
+        }
+
         // iut_planning_default_index
         if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'iut_planning_default_index')), array (  '_controller' => 'Iut\\PlanningBundle\\Controller\\DefaultController::indexAction',));
         }
 
-        if (0 === strpos($pathinfo, '/add')) {
-            // iut_planning_default_formuser
-            if ($pathinfo === '/add') {
-                return array (  '_controller' => 'Iut\\PlanningBundle\\Controller\\DefaultController::formuserAction',  '_route' => 'iut_planning_default_formuser',);
+        // iut_planning_default_add
+        if ($pathinfo === '/add') {
+            return array (  '_controller' => 'Iut\\PlanningBundle\\Controller\\DefaultController::addAction',  '_route' => 'iut_planning_default_add',);
+        }
+
+        // iut_planning_default_save
+        if ($pathinfo === '/save') {
+            return array (  '_controller' => 'Iut\\PlanningBundle\\Controller\\DefaultController::saveAction',  '_route' => 'iut_planning_default_save',);
+        }
+
+        if (0 === strpos($pathinfo, '/id')) {
+            // iut_planning_default_id
+            if (preg_match('#^/id/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'iut_planning_default_id')), array (  '_controller' => 'Iut\\PlanningBundle\\Controller\\DefaultController::idAction',));
             }
 
-            // iut_planning_users_add
-            if ($pathinfo === '/add') {
-                return array (  '_controller' => 'Iut\\PlanningBundle\\Controller\\UsersController::addAction',  '_route' => 'iut_planning_users_add',);
+            // iut_planning_default_show
+            if (preg_match('#^/id/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'iut_planning_default_show')), array (  '_controller' => 'Iut\\PlanningBundle\\Controller\\DefaultController::showAction',));
             }
 
         }
 
-        // iut_planning_users_id
-        if (0 === strpos($pathinfo, '/id') && preg_match('#^/id/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'iut_planning_users_id')), array (  '_controller' => 'Iut\\PlanningBundle\\Controller\\UsersController::idAction',));
+        // iut_planning_users_add
+        if ($pathinfo === '/add') {
+            return array (  '_controller' => 'Iut\\PlanningBundle\\Controller\\UsersController::addAction',  '_route' => 'iut_planning_users_add',);
         }
 
         // _welcome

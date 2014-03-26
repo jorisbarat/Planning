@@ -1,7 +1,15 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}IutPlanningBundle:User:id{% endblock %}
+{% block title %}IutPlanningBundle:Users:id{% endblock %}
 
 {% block body %}
-<h1>Welcome to the {{id}} page</h1>
+<p>
+	Id : {{iduser}}
+</p>
+<p>
+	Username : {{username}}
+</p>
+
+{{msg}}
+
 {% endblock %}

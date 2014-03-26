@@ -42,7 +42,6 @@ class Users
      */
     private $etat;
 
-
     /**
      * Get iduser
      *
