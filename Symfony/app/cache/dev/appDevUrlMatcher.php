@@ -135,19 +135,35 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // iut_planning_activity_add
-        if ($pathinfo === '/activity/add') {
-            return array (  '_controller' => 'Iut\\PlanningBundle\\Controller\\ActivityController::addAction',  '_route' => 'iut_planning_activity_add',);
-        }
+        if (0 === strpos($pathinfo, '/activity')) {
+            // iut_planning_activity_add
+            if ($pathinfo === '/activity/add') {
+                return array (  '_controller' => 'Iut\\PlanningBundle\\Controller\\ActivityController::addAction',  '_route' => 'iut_planning_activity_add',);
+            }
 
-        // iut_planning_activity_show
-        if ($pathinfo === '/show') {
-            return array (  '_controller' => 'Iut\\PlanningBundle\\Controller\\ActivityController::showAction',  '_route' => 'iut_planning_activity_show',);
+            if (0 === strpos($pathinfo, '/activity/s')) {
+                // iut_planning_activity_saveactivity
+                if ($pathinfo === '/activity/saveActivity') {
+                    return array (  '_controller' => 'Iut\\PlanningBundle\\Controller\\ActivityController::saveActivityAction',  '_route' => 'iut_planning_activity_saveactivity',);
+                }
+
+                // iut_planning_activity_show
+                if ($pathinfo === '/activity/show') {
+                    return array (  '_controller' => 'Iut\\PlanningBundle\\Controller\\ActivityController::showAction',  '_route' => 'iut_planning_activity_show',);
+                }
+
+            }
+
         }
 
         // iut_planning_default_index
         if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'iut_planning_default_index')), array (  '_controller' => 'Iut\\PlanningBundle\\Controller\\DefaultController::indexAction',));
+        }
+
+        // iut_planning_default_menuprincipal
+        if ($pathinfo === '/menuPrincipal') {
+            return array (  '_controller' => 'Iut\\PlanningBundle\\Controller\\DefaultController::menuPrincipalAction',  '_route' => 'iut_planning_default_menuprincipal',);
         }
 
         // iut_planning_default_add
@@ -160,17 +176,27 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Iut\\PlanningBundle\\Controller\\DefaultController::saveAction',  '_route' => 'iut_planning_default_save',);
         }
 
-        if (0 === strpos($pathinfo, '/id')) {
-            // iut_planning_default_id
-            if (preg_match('#^/id/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'iut_planning_default_id')), array (  '_controller' => 'Iut\\PlanningBundle\\Controller\\DefaultController::idAction',));
+        // iut_planning_default_id
+        if (0 === strpos($pathinfo, '/id') && preg_match('#^/id/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'iut_planning_default_id')), array (  '_controller' => 'Iut\\PlanningBundle\\Controller\\DefaultController::idAction',));
+        }
+
+        if (0 === strpos($pathinfo, '/planifier')) {
+            // iut_planning_planifier_add
+            if ($pathinfo === '/planifier/add') {
+                return array (  '_controller' => 'Iut\\PlanningBundle\\Controller\\PlanifierController::addAction',  '_route' => 'iut_planning_planifier_add',);
             }
 
-            // iut_planning_default_show
-            if (preg_match('#^/id/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'iut_planning_default_show')), array (  '_controller' => 'Iut\\PlanningBundle\\Controller\\DefaultController::showAction',));
+            // iut_planning_planifier_saveplanifier
+            if ($pathinfo === '/planifier/savePlanifier') {
+                return array (  '_controller' => 'Iut\\PlanningBundle\\Controller\\PlanifierController::savePlanifierAction',  '_route' => 'iut_planning_planifier_saveplanifier',);
             }
 
+        }
+
+        // iut_planning_planifier_id
+        if (0 === strpos($pathinfo, '/id') && preg_match('#^/id/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'iut_planning_planifier_id')), array (  '_controller' => 'Iut\\PlanningBundle\\Controller\\PlanifierController::idAction',));
         }
 
         // iut_planning_users_add

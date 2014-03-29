@@ -37,7 +37,8 @@ class __TwigTemplate_655af2c784056f79b5afc2d9cfb7a593adc0c204c8b7491fdbb74b75a58
         // line 6
         echo "<h1>Ajout d'utilisateur</h1>
 
-<form method=\"get\" action=\"save\">
+<form method=\"post\" action=\"save\">
+<fieldset>
 <p>
 \tUsername : <input type=\"text\" name=\"Username\" />
 </p>
@@ -47,12 +48,13 @@ class __TwigTemplate_655af2c784056f79b5afc2d9cfb7a593adc0c204c8b7491fdbb74b75a58
 <p>
 \t<input type=\"submit\" name=\"Enregistrer\" value=\"Enregistrer\"/>
 </p>
+</fieldset>
+</form>
+
 ";
-        // line 18
+        // line 22
         echo twig_escape_filter($this->env, (isset($context["msg"]) ? $context["msg"] : $this->getContext($context, "msg")), "html", null, true);
         echo "
-
-</form>
 
 ";
     }
@@ -69,6 +71,6 @@ class __TwigTemplate_655af2c784056f79b5afc2d9cfb7a593adc0c204c8b7491fdbb74b75a58
 
     public function getDebugInfo()
     {
-        return array (  52 => 18,  38 => 6,  35 => 5,  29 => 3,);
+        return array (  56 => 22,  38 => 6,  35 => 5,  29 => 3,);
     }
 }
